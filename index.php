@@ -23,27 +23,19 @@
     $maleActors = "oscar_age_male.csv";
     $femaleActors = "oscar_age_female.csv";
 
-    $filesArray=[$maleActors,$femaleActors];
-    $table = [];
+    $filesArray = ["male"=>$maleActors, "female" => $femaleActors];
 
-    function (string $file_name, string $actor_gender){
-    if (($handle = fopen($maleActors, 'r')) !== FALSE) {
-        $headers = fgetcsv($handle, 1000, ",");
-        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
-            $movie = new Winner;
-            $movie->movieName = $data[4]??null;
-            $movie->yearReleased = $data[1] ?? null;
-            $movie->maleActor = $data[3] ?? null;
-            
-            
-            array_push($table,$movie);
-            }
-            fclose($handle);
-        }
+    $winners = [];
+
+    foreach($filesArray as $actors_gender =>$file_name){
+
+        fileToArray ($winners,$file_name,$actors_gender);
     }
 
-        var_dump($table)
+
+
+
     ?>
 
 
