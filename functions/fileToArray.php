@@ -7,16 +7,13 @@ function fileToArray(array &$table, string $file_name, string $actor_gender)
 
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
-
-
-
-            if (($key = isMovieInTable($table, $data[4]))) {
+            if (($key = isMovieInTable($table, $name =$data[4]??null))) {
 
                 $movie = $table[$key];
                 if ($movie->maleActor === null) {
-                    $movie->maleActor = $data[3];
+                    $movie->maleActor = $data[3]??null;
                 } else {
-                    $movie->femaleActor = $data[3];
+                    $movie->femaleActor = $data[3]??null;
                 }
             } else {
 

@@ -18,7 +18,11 @@
 
     <?php
 
-    include "classes/Winner.php";
+    require_once "classes/Winner.php";
+    require_once "functions/fileToArray.php";
+    require_once "functions/isMovieInTable.php";
+    require_once "functions/arrayToTable.php";
+    
 
     $maleActors = "oscar_age_male.csv";
     $femaleActors = "oscar_age_female.csv";
@@ -32,6 +36,11 @@
 
         fileToArray ($winners,$file_name,$actors_gender);
     }
+
+    arrayToTable($winners);
+
+
+    
 
 
 
