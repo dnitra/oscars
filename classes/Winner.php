@@ -4,9 +4,9 @@ class Winner
 {
 
     public ?string $movieName = null;
-    public ?string $yearReleased = null;
-    public ?string $maleActor = null;
-    public ?string $femaleActor = null;
-    
+    public ?int $yearReleased = null;
+    public ?array $maleActor = ["actorName"=>null, "actorAge" => null, "movieName"=> null];
+    public ?array $femaleActor = ["actorName"=>null, "actorAge" => null, "movieName" => null];
+
 
 }
