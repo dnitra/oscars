@@ -1,23 +1,31 @@
 <?php
 
+
+/**
+ * funkce, ktera zobrazi data z array filmu v pozadovane tabulce
+ */
+
 function arrayToTable_Winners(array $arrayOfMovies)
 {
-
+    
+    /**
+     * seradit data z tabulky podle nazvu filmu
+     */
     usort($arrayOfMovies, function ($a, $b) {
         return strcmp($a->movieName, $b->movieName);
     });
 
 
-    echo " <h2>Movies with an Oscar winning actors and actress</h2>";
+    echo " <h2>Filmy, které vyhrály Oscar v kategoriích nejlepší herec i herečka</h2>";
     echo "<table class='table table-hover table-striped'>";
 
     echo '<thead>
 
     <th scope="col"></th>
-    <th scope="col">Movie name</th>
-    <th scope="col">Year released</th>
-    <th scope="col">Male actor</th>
-    <th scope="col">Female actor</th>
+    <th scope="col">Název filmu</th>
+    <th scope="col">Rok</th>
+    <th scope="col">Ženy</th>
+    <th scope="col">Muži</th>
     </thead>';
 
     echo '<tbody>';

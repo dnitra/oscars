@@ -1,20 +1,28 @@
-<?php 
+<?php
+
+/**
+ * funkce, ktera zobrazi data z array filmu v pozadovane tabulce
+ */
+
 
 function arrayToTable_Overview(array $arrayOfMovies){
-    // var_dump($arrayOfMovies);
+
+    /**
+     * seradit data z tabulky podle roku
+     */
  usort($arrayOfMovies, function($a, $b) {
     return ($a->yearReleased - $b->yearReleased);
  });
 
 
-    echo " <h2>Oscar winnings overview</h2>";
+    echo " <h2>Přehled výherců Oscaru podle roku</h2>";
     echo "<table class='table'>";
     
     echo '<thead>
 
-    <th scope="col">Year released</th>
-    <th scope="col">Female actor</th>
-    <th scope="col">Male actor</th>
+    <th scope="col">Rok</th>
+    <th scope="col">Ženy</th>
+    <th scope="col">Muži</th>
     </thead>';
     
     echo '<tbody>';
